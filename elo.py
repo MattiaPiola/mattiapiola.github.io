@@ -7,3 +7,5 @@ def delta_elo(expected_results, actual_results, k = 40):
     total_actual = sum(actual_results)
     delta = k * (total_actual - total_expected)
     return delta
+
+

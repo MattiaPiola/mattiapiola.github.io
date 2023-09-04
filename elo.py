@@ -1,7 +1,3 @@
-from tinydb import TinyDB, Query
-
-db = TinyDB('./db.json')
-
 def expected_result(elo_1, elo_2):
     expected_1 = 1 / ( 1 + 10** ( ( elo_2 - elo_1)/400 ) )
     return expected_1

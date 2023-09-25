@@ -9,7 +9,10 @@ matches = db.table('matches')
 
 @route('/classifica')
 def classifica():
-    page = '<table><tr>'
+    page = '<head>'
+    page += '<style>table, th, td {border: 1px solid black;}</style>'
+    page += '</head>'
+    page += '<body><h1>Classifica</h1><table><tr>'
     for voice in players.all()[0].keys():
         header = '<th>' + voice + '</th>'
         page += header
@@ -17,7 +20,7 @@ def classifica():
     for player in players:
         element = '<tr><td>' + player['name'] + '</td><td>' + str(player['elo']) + '</td></tr>'
         page += element
-    page += '</table>'
+    page += '</table></body>'
     return page
                
 @get('/newmatch')               

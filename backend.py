@@ -63,11 +63,6 @@ def delta_elo(expected_results, actual_results, k = 40):
     delta = k * (total_actual - total_expected)
     return delta
 
-def get_today_matches(date):
-    today = date
-    query = Query()
-    today_matches = matches.search(query.date == today)
-    return today_matches
 ###################################################################
 
 #FUNCTIONS FOR FAST PROTOTYPING
@@ -76,6 +71,9 @@ def fill_players():
     pls = ['edo','gio','teo','fra','eli','tia','pio']
     for pl in pls:
         new_player(pl,randint(700,1500))
+
+def empty_matches():
+    matches.truncate()
 
 def random_match():
     date = datetime.datetime.now().strftime('%d%m%y')
